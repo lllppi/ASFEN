@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="python@sshConfig://root@218.192.110.175:22 password/home/miniconda3/envs/xlq/bin/python">
+          <settings>
+            <list>
+              <mapping local-root="$PROJECT_DIR$" remote-root="/mnt/data/xlq/4-SSEGCN-ABSA-main" />
+            </list>
+          </settings>
+        </remote-mappings>
+        <remote-mappings server-id="python@sftp://root@218.192.110.174:22/home/pci/miniconda3/envs/xlq/bin/python3.6" />
+      </list>
+    </list>
+  </component>
+</project>
