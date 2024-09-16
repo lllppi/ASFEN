@@ -1,7 +1,7 @@
 import json
 from typing import DefaultDict
 
-with open("/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_train.json", 'r') as f:
+with open("../dataset/Tweets17_corenlp/twitter17_train.json", 'r') as f:
     all_data = []
     data = json.load(f)
     for d in data:
@@ -51,11 +51,11 @@ with open("/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_train.jso
                                                 node_set.add(h)
         d['short'] = leverl_degree
 
-    wf = open('/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_train_write_6.json', 'w')
+    wf = open('../dataset/Tweets17_corenlp/twitter17_train_write_6.json', 'w')
     wf.write(json.dumps(data, indent=4))
     wf.close()
 
-with open("/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_test.json", 'r') as f:
+with open("../dataset/Tweets17_corenlp/twitter17_test.json", 'r') as f:
     all_data = []
     data = json.load(f)
     for d in data:
@@ -105,11 +105,11 @@ with open("/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_test.json
                                                 node_set.add(h)
         d['short'] = leverl_degree
 
-    wf = open('/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_test_write_6.json', 'w')
+    wf = open('../dataset/Tweets17_corenlp/twitter17_test_write_6.json', 'w')
     wf.write(json.dumps(data, indent=4))
     wf.close()
 
-with open("/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_val.json", 'r') as f:
+with open("../dataset/Tweets17_corenlp/twitter17_val.json", 'r') as f:
     all_data = []
     data = json.load(f)
     for d in data:
@@ -159,6 +159,6 @@ with open("/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_val.json"
                                                 node_set.add(h)
         d['short'] = leverl_degree
 
-    wf = open('/usr/data/xlq/ASFEN-main/dataset/Tweets17_corenlp/twitter17_val_write_6.json', 'w')
+    wf = open('../dataset/Tweets17_corenlp/twitter17_val_write_6.json', 'w')
     wf.write(json.dumps(data, indent=4))
     wf.close()
