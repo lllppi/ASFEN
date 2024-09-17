@@ -22,8 +22,8 @@ class ASFENClassifier(nn.Module):
     def __init__(self, bert, opt, config):
         super().__init__()
         self.opt = opt
-        self.vision_model = FAModel(bert, opt=opt)
-        self.gcn_model = GCNAbsaModel(bert, opt=opt)
+        self.vision = VFIA(bert, opt=opt)
+        self.gcn = GCNAbsa(bert, opt=opt)
         self.self_attention = BertSelfAttention(config)
         self.cross_attention = BertCrossEncoder_AttnMap(config, layer_num=1)
         self.dropout = nn.Dropout(0.3)
@@ -31,8 +31,8 @@ class ASFENClassifier(nn.Module):
         self.classifier = nn.Linear(opt.max_length, opt.polarities_dim)
 
     def forward(self, inputs, input_mask):
-        outputs1 = self.gcn_model(inputs)
-        outputs2 = self.vision_model(inputs)
+        outputs1 = self.gcn(inputs)
+        outputs2 = self.vision(inputs)
         extended_sent_mask = input_mask.unsqueeze(1).unsqueeze(2)
         extended_sent_mask = extended_sent_mask.to(dtype=next(self.parameters()).dtype)
         extended_sent_mask = (1.0 - extended_sent_mask) * -10000.0
@@ -44,7 +44,7 @@ class ASFENClassifier(nn.Module):
         logits = self.classifier(gathered_all_encoder_layers)
         return logits, None
 
-class FAModel(nn.Module):
+class VFIA(nn.Module):
     def __init__(self, bert, opt):
         super().__init__()
         self.bert = bert
@@ -71,7 +71,7 @@ class FAModel(nn.Module):
         return outputs
 
 
-class GCNAbsaModel(nn.Module):
+class GCNAbsa(nn.Module):
     def __init__(self, bert, opt):
         super().__init__()
         self.opt = opt
