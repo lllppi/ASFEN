@@ -18,7 +18,7 @@ Prepare dataset with:
 
 `python dataset/preprocess_data.py`
 
-You can also directly use the processed data in the Tweets15_corenlp/Tweets17_corenlp folder.
+You can also directly use the processed data in the Tweets15_corenlp/Tweets17_corenlp folder.  The document can be downloaded at [this link](https://pan.baidu.com/s/1O0BK9Ma3dPJbxenBODVJ9g?pwd=ddsw).
 
 ## Training
 
